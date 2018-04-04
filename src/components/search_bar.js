@@ -17,9 +17,17 @@ class SearchBar extends Component {
     //onChange = React defined property
     return (
       //Always wrap JS variable in {} inside of JSX
-      <div>  
-        <input onChange={event => this.setState({ term: event.target.value })} />
-        Value of the input: {this.state.term}
+      //Value of the input: {this.state.term}
+      //inital value is set equal to an empty string
+      //when user enters some text, the state is updated to this.state.term = changed text value
+      //value of the input has not actually changed. only called event handler with the new value
+      //event handler runs updating this.state.term to be that new value
+      //user only triggers an event, not actually change input Value
+      //because we updated the state of that event that causes the value of the input to change
+      <div>
+        <input
+          value={this.state.term}
+          onChange={event => this.setState({ term: event.target.value })} />
       </div>
     );
   }
